@@ -37,15 +37,63 @@ function SeasonalFruit() {
     };
 
     const FruitCard = ({ image, name, price }) => (
-        <div className='card'>
-            <img src={image} alt={name} />
-            <h4 style={{ fontWeight: "900" }}>{name}</h4>
-            <p><b>Price:</b> ₹{price}</p>
-            <div style={{ display: "flex", justifyContent: "center", gap: "10px", marginTop: "-40px" }}>
-                <button onClick={() => addToCart(name, price)}>Add to Cart</button>
+        <div style={{
+                            background: "white",
+                            borderRadius: "10px",
+                            padding: "15px",
+                            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                            transition: "transform 0.3s ease",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center"
+                        }}>
+            <img src={image} alt={name} style={{
+                                    width: "100%",
+                                    height: "180px",
+                                    objectFit: "cover",
+                                    borderRadius: "8px",
+                                    marginBottom: "15px"
+                                }}/>
+            <h4 style={{ 
+                                fontWeight: "900",
+                                fontSize: "clamp(16px, 3vw, 20px)",
+                                margin: "5px 0",
+                                textAlign: "center"
+                            }}>{name}</h4>
+            <p style={{ 
+                                fontWeight: "bold",
+                                fontSize: "18px",
+                                margin: "5px 0 15px"
+                            }}>Price: ₹{price}</p>
+            <div style={{ 
+                                display: "flex",
+                                justifyContent: "center",
+                                gap: "10px",
+                                width: "100%",
+                                marginTop: "auto"
+                            }}>
+                <button onClick={() => addToCart(name, price)} style={{
+                                        backgroundColor: "#ff6b6b",
+                                        color: "white",
+                                        border: "none",
+                                        padding: "8px 15px",
+                                        borderRadius: "5px",
+                                        cursor: "pointer",
+                                        fontSize: "14px",
+                                        flex: 1
+                                    }}>Add to Cart</button>
                 <button
                     onClick={handleNavigation}
-                    style={{ backgroundColor: "green", color: "white", border: "none", padding: "5px 10px", borderRadius: "5px" }}
+                    style={{ 
+                                        backgroundColor: "green", 
+                                        color: "white", 
+                                        border: "none", 
+                                        padding: "8px 15px", 
+                                        borderRadius: "5px",
+                                        cursor: "pointer",
+                                        fontSize: "14px",
+                                        flex: 1
+                                    }}
                 >
                     Order Now
                 </button>
@@ -81,13 +129,29 @@ function SeasonalFruit() {
     };
 
     return (
-        <div style={{ backgroundImage: `url(${backseason})`, backgroundSize: "cover", backgroundPosition: "center", paddingBottom: "40px" }}>
-            <div style={{ textAlign: "center" }}>
-                <p style={{ fontSize: "40px", fontWeight: "bold", color: "black", paddingTop: "20px", fontFamily: "cursive" }}>SEASONAL FRUITS</p>
+        <div style={{ backgroundImage: `url(${backseason})`, backgroundSize: "cover", 
+            backgroundPosition: "center", 
+            minHeight: "100vh",
+            padding: "20px 10px 40px" }}>
+            <div style={{ textAlign: "center", maxWidth: "1200px",
+                margin: "0 auto" }}>
+                <h1 style={{ 
+                    fontSize: "clamp(28px, 5vw, 40px)", 
+                    fontWeight: "bold", 
+                    color: "black", 
+                    padding: "20px 0",
+                    fontFamily: "cursive",
+                    textShadow: "2px 2px 4px rgba(0,0,0,0.3)"
+                }}>SEASONAL FRUITS</h1>
                 {Object.entries(seasonalFruits).map(([season, fruits]) => (
                     <div key={season} style={{ width: "100%" }}>
                         <p style={{ textAlign: "center", fontSize: "30px", fontWeight: "bold", color: "#4B0082", margin: "30px 0 10px 0", fontFamily: "cursive" }}>{season}</p>
-                        <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
+                        <div style={{ 
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+                    gap: "20px",
+                    padding: "0 10px"
+                }}>
                             {fruits.map((fruit, idx) => (
                                 <FruitCard key={idx} image={fruit.image} name={fruit.name} price={fruit.price} />
                             ))}

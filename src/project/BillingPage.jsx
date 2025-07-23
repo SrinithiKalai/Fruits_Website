@@ -23,32 +23,79 @@ function BillingPage() {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${backbill})`, backgroundSize: "cover", backgroundPosition: "center", height: "100vh" }}>
-      <div style={{ paddingLeft: "350px", paddingRight: "350px", paddingTop: "20px", paddingBottom: "20px" }}>
+    <div style={{ 
+      backgroundImage: `url(${backbill})`, 
+      backgroundSize: "cover", 
+      backgroundPosition: "center", 
+      minHeight: "100vh",
+      padding: "20px"
+    }}>
+      <div style={{ 
+        maxWidth: "100%",
+        padding: "15px"
+      }}>
         <div>
-          <h2 className="mb-6 text-center">Delivery & Payment Details</h2>
+          <h2 className="mb-4 text-center" style={{ fontSize: "1.5rem" }}>Delivery & Payment Details</h2>
           <form onSubmit={handleSubmit}>
             <div>
-              <label className="mb-3"><b>Full Name</b></label>
-              <div className='d-flex gap-4'>
-                <input type="text" placeholder="First Name" className="border rounded p-2" style={{ width: "400px" }} />
-                <input type="text" placeholder="Last Name" className="border rounded p-2" style={{ width: "400px" }} />
+              <label className="mb-2"><b>Full Name</b></label>
+              <div className='d-flex flex-column flex-md-row gap-3'>
+                <input 
+                  type="text" 
+                  placeholder="First Name" 
+                  className="border rounded p-2" 
+                  style={{ width: "100%" }} 
+                />
+                <input 
+                  type="text" 
+                  placeholder="Last Name" 
+                  className="border rounded p-2" 
+                  style={{ width: "100%" }} 
+                />
               </div>
             </div>
 
             <div>
-              <label className="mb-3 mt-4"><b>Address</b></label>
-              <input type="text" placeholder="Street Address Line 1" className="border rounded p-2" style={{ width: "820px" }} />
-              <div className='mt-4'>
-                <input type="text" placeholder="Street Address Line 2" className="border rounded p-2" style={{ width: "820px" }} />
+              <label className="mb-2 mt-3"><b>Address</b></label>
+              <input 
+                type="text" 
+                placeholder="Street Address Line 1" 
+                className="border rounded p-2" 
+                style={{ width: "100%" }} 
+              />
+              <div className='mt-3'>
+                <input 
+                  type="text" 
+                  placeholder="Street Address Line 2" 
+                  className="border rounded p-2" 
+                  style={{ width: "100%" }} 
+                />
               </div>
-              <div className='d-flex gap-4 mt-4'>
-                <input type="text" placeholder="City" className="border rounded p-2" style={{ width: "400px" }} />
-                <input type="text" placeholder="State/Province" className="border rounded p-2" style={{ width: "400px" }} />
+              <div className='d-flex flex-column flex-md-row gap-3 mt-3'>
+                <input 
+                  type="text" 
+                  placeholder="City" 
+                  className="border rounded p-2" 
+                  style={{ width: "100%" }} 
+                />
+                <input 
+                  type="text" 
+                  placeholder="State/Province" 
+                  className="border rounded p-2" 
+                  style={{ width: "100%" }} 
+                />
               </div>
-              <div className='d-flex gap-4 mt-4'>
-                <input type="number" placeholder="Postal/Zip Code" className="border rounded p-2" style={{ width: "400px" }} />
-                <select className="border rounded p-2" style={{ width: "400px" }}>
+              <div className='d-flex flex-column flex-md-row gap-3 mt-3'>
+                <input 
+                  type="number" 
+                  placeholder="Postal/Zip Code" 
+                  className="border rounded p-2" 
+                  style={{ width: "100%" }} 
+                />
+                <select 
+                  className="border rounded p-2" 
+                  style={{ width: "100%" }}
+                >
                   <option>Please Select Country</option>
                   <option>India</option>
                   <option>USA</option>
@@ -58,18 +105,34 @@ function BillingPage() {
               </div>
             </div>
 
-            <div className='mt-4 d-flex gap-4'>
-              <div>
-                <label className="mb-3"><b>Phone Number</b></label>
-                <input type="number" placeholder="(000) 000-0000" className="border rounded p-2" style={{ width: "400px" }} />
+            <div className='mt-3 d-flex flex-column flex-md-row gap-3'>
+              <div style={{ width: "100%" }}>
+                <label className="mb-2"><b>Phone Number</b></label>
+                <input 
+                  type="number" 
+                  placeholder="(000) 000-0000" 
+                  className="border rounded p-2" 
+                  style={{ width: "100%" }} 
+                />
               </div>
-              <div>
-                <label className="mb-3"><b>E-mail</b></label>
-                <input type="email" placeholder="myname123@example.com" className="border rounded p-2" style={{ width: "400px" }} />
+              <div style={{ width: "100%" }}>
+                <label className="mb-2"><b>E-mail</b></label>
+                <input 
+                  type="email" 
+                  placeholder="myname123@example.com" 
+                  className="border rounded p-2" 
+                  style={{ width: "100%" }} 
+                />
               </div>
             </div>
             <div className='d-flex justify-content-center'>
-              <button type="submit" className='btn btn-success mt-5'>Submit</button>
+              <button 
+                type="submit" 
+                className='btn btn-success mt-4'
+                style={{ width: "100%", maxWidth: "300px" }}
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>

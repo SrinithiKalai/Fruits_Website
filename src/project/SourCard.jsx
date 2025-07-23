@@ -119,14 +119,106 @@ function SourCard({ openId, setOpenId }) {
 
   if (!selectedFruit) return null;
 
-  return (
-    <div className="modal-overlay" style={{position: "fixed", top: 0, left: 0, right: 0, bottom: 0,backgroundColor: "rgba(0,0,0,0.5)", display: "flex",justifyContent: "center", alignItems: "center"}}>
-      <div className="modal-content" style={{background: "#fff", padding: "20px", borderRadius: "10px",width: "400px", maxHeight: "90vh", overflowY: "auto", position: "relative"}}>
-        <button onClick={() => setOpenId(null)} style={{position: "absolute", top: 5, right: 5, fontSize: "20px",border: "none", background: "none", cursor: "pointer"}}>✖</button>
-        <h2 style={{textAlign: "center"}}>{selectedFruit.title}</h2>
-        <img src={selectedFruit.image} alt={selectedFruit.title} style={{width: "100%", height: "200px", objectFit: "cover", borderRadius: "10px"}} />
-        <p style={{ marginTop: "10px", textAlign: "justify" }}><b>Description:</b> {selectedFruit.description}</p>
-        <button onClick={() => setOpenId(null)} style={{marginTop: "20px", padding: "10px 20px",backgroundColor: "red", color: "white", border: "none",borderRadius: "5px", cursor: "pointer"}}>Close</button>
+   return (
+    <div className="modal-overlay" style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: "rgba(0,0,0,0.5)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "15px",
+      zIndex: 1000
+    }}>
+      <div className="modal-content" style={{
+        background: "#fff",
+        padding: "20px",
+        borderRadius: "10px",
+        width: "100%",
+        maxWidth: "400px",
+        maxHeight: "90vh",
+        overflowY: "auto",
+        position: "relative",
+        boxShadow: "0 4px 8px rgba(0,0,0,0.2)"
+      }}>
+        <button 
+          onClick={() => setOpenId(null)} 
+          style={{
+            position: "absolute",
+            top: "10px",
+            right: "10px",
+            fontSize: "20px",
+            border: "none",
+            background: "none",
+            cursor: "pointer",
+            padding: "5px"
+          }}
+          aria-label="Close modal"
+        >
+          ✖
+        </button>
+        
+        <h2 style={{
+          textAlign: "center",
+          fontSize: "clamp(18px, 5vw, 24px)",
+          marginBottom: "15px",
+          paddingRight: "20px" // Ensure text doesn't overlap close button
+        }}>
+          {selectedFruit.title}
+        </h2>
+        
+        <img 
+          src={selectedFruit.image} 
+          alt={selectedFruit.title} 
+          style={{
+            width: "100%",
+            height: "auto",
+            maxHeight: "200px",
+            objectFit: "cover",
+            borderRadius: "8px"
+          }} 
+        />
+        
+        <div style={{
+          marginTop: "15px",
+          padding: "0 5px"
+        }}>
+          <p style={{ 
+            margin: "10px 0",
+            textAlign: "left",
+            fontSize: "clamp(14px, 4vw, 16px)",
+            lineHeight: "1.5"
+          }}>
+            <b>Description:</b> {selectedFruit.description}
+          </p>
+        </div>
+        
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "20px"
+        }}>
+          <button 
+            onClick={() => setOpenId(null)} 
+            style={{
+              padding: "10px 25px",
+              backgroundColor: "#ff4444",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+              fontSize: "16px",
+              fontWeight: "bold",
+              width: "100%",
+              maxWidth: "200px"
+            }}
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );
