@@ -1,0 +1,1 @@
+export const Log = "https://6801d9fa81c7e9fbcc438527.mockapi.io/user" ;
